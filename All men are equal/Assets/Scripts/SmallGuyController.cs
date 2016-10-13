@@ -8,7 +8,6 @@ public class SmallGuyController : MonoBehaviour
     public float bulletSpeed;
     private bool touchingDoor = false;
     public bool onGround = false;
-	public bool isOn = false;
     Vector2 lookDirection = Vector2.zero;
     void Start()
     {
@@ -58,21 +57,10 @@ public class SmallGuyController : MonoBehaviour
 			onGround = true;
 		if (other.gameObject.CompareTag ("door"))
 			touchingDoor = true;
-		if (other.gameObject.CompareTag ("toggle"))
-		{
-			if (isOn = false)
-				isOn = true;
-			else
-				isOn = false;
-		}
-		if (other.gameObject.CompareTag ("hold"))
-			isOn = true;
 	}
     void OnTriggerExit2D(Collider2D other)
     {
 		if (other.gameObject.CompareTag ("floor"))
 			onGround = false;
-		if (other.gameObject.CompareTag ("hold"))
-			isOn = false;
     }
 }
