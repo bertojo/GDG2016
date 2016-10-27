@@ -5,6 +5,7 @@ public class SmallGuyController : MonoBehaviour
 {
     public float speed;
     public GameObject bulletPrefab;
+	public GameObject hand;
     public float bulletSpeed;
     private bool touchingDoor = false;
     public bool onGround = false;
@@ -48,6 +49,7 @@ public class SmallGuyController : MonoBehaviour
         {
             GameObject newBullet = Instantiate(bulletPrefab);
             newBullet.transform.rotation = this.transform.rotation;
+			newBullet.transform.position = hand.transform.position;
             newBullet.GetComponent<Rigidbody2D>().velocity = (bulletSpeed + speed) * lookDirection;
         }
     }
